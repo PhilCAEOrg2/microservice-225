@@ -87,20 +87,21 @@ public class Res extends RESTService {
    * gettest
    *
    * 
-   *
+   * @param id  a String
    * 
    * @return Response 
    * 
    */
   @GET
-  @Path("/test")
+  @Path("/test/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "nf"),
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "res")
   })
   @ApiOperation(value = "gettest", notes = " ")
-  public Response gettest() {
+  public Response gettest(@PathParam("id") String id) {
 
 
 
@@ -113,6 +114,15 @@ public class Res extends RESTService {
 
 
 
+    // nf
+    boolean nf_condition = true;
+    if(nf_condition) {
+      JSONObject nf = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(nf.toJSONString()).build();
+    }
     // res
     boolean res_condition = true;
     if(res_condition) {
