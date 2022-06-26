@@ -93,7 +93,7 @@ public class Res extends RESTService {
    * 
    */
   @GET
-  @Path("/test2")
+  @Path("/test")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
